@@ -1,7 +1,7 @@
 {
   "Produkte" : [
 		{
-			"ProduktId": 1,
+			"Id": 1,
 			"Name": "Fußball",
 			"Preis": 24.99,
 		 	"Kategorie": "Sport",
@@ -9,7 +9,7 @@
 			"ArtikelImLager": 10
 		},
 		{
-			"ProduktId": 2,
+			"Id": 2,
 			"Name": "Matratze",
 			"Preis": 129.99,
 		 	"Kategorie": "Möbel",
@@ -17,7 +17,7 @@
 			"ArtikelImLager": 3
 		},
 		{
-			"ProduktId": 3,
+			"Id": 3,
 			"Name": "Schraube M5",
 			"Preis": 9.99,
 		 	"Kategorie": "Werkzeug",
@@ -25,7 +25,7 @@
 			"ArtikelImLager": 3000
 		},
 		{
-			"ProduktId": 4,
+			"Id": 4,
 			"Name": "Schraubenschlüssel",
 			"Preis": 7.00,
 		 	"Kategorie": "Werkzeug",
@@ -33,7 +33,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"ProduktId": 5,
+			"Id": 5,
 			"Name": "Hammer",
 			"Preis": 5.00,
 		 	"Kategorie": "Werkzeug",
@@ -41,7 +41,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"ProduktId": 6,
+			"Id": 6,
 			"Name": "Taucherbrille",
 			"Preis": 19.99,
 		 	"Kategorie": "Sport",
@@ -49,7 +49,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"ProduktId": 7,
+			"Id": 7,
 			"Name": "Matratze",
 			"Preis": 99.99,
 		 	"Kategorie": "Möbel",
@@ -57,7 +57,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"ProduktId": 8,
+			"Id": 8,
 			"Name": "Regal",
 			"Preis": 49.00,
 		 	"Kategorie": "Möbel",
@@ -65,7 +65,7 @@
 			"ArtikelImLager": 2
 		},
 		{
-			"ProduktId": 9,
+			"Id": 9,
 			"Name": "Sofa",
 			"Preis": 1299.00,
 		 	"Kategorie": "Möbel",
