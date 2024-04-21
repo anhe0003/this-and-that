@@ -1,7 +1,7 @@
 {
   "Produkte" : [
 		{
-			"Id": 1,
+			"ProduktId": 1,
 			"Name": "Fußball",
 			"Preis": 24.99,
 		 	"Kategorie": "Sport",
@@ -9,7 +9,7 @@
 			"ArtikelImLager": 10
 		},
 		{
-			"Id": 2,
+			"ProduktId": 2,
 			"Name": "Matratze",
 			"Preis": 129.99,
 		 	"Kategorie": "Möbel",
@@ -17,7 +17,7 @@
 			"ArtikelImLager": 3
 		},
 		{
-			"Id": 3,
+			"ProduktId": 3,
 			"Name": "Schraube M5",
 			"Preis": 9.99,
 		 	"Kategorie": "Werkzeug",
@@ -25,7 +25,7 @@
 			"ArtikelImLager": 3000
 		},
 		{
-			"Id": 4,
+			"ProduktId": 4,
 			"Name": "Schraubenschlüssel",
 			"Preis": 7.00,
 		 	"Kategorie": "Werkzeug",
@@ -33,7 +33,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"Id": 5,
+			"ProduktId": 5,
 			"Name": "Hammer",
 			"Preis": 5.00,
 		 	"Kategorie": "Werkzeug",
@@ -41,7 +41,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"Id": 6,
+			"ProduktId": 6,
 			"Name": "Taucherbrille",
 			"Preis": 19.99,
 		 	"Kategorie": "Sport",
@@ -49,7 +49,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"Id": 7,
+			"ProduktId": 7,
 			"Name": "Matratze",
 			"Preis": 99.99,
 		 	"Kategorie": "Möbel",
@@ -57,7 +57,7 @@
 			"ArtikelImLager": 0
 		},
 		{
-			"Id": 8,
+			"ProduktId": 8,
 			"Name": "Regal",
 			"Preis": 49.00,
 		 	"Kategorie": "Möbel",
@@ -65,7 +65,7 @@
 			"ArtikelImLager": 2
 		},
 		{
-			"Id": 9,
+			"ProduktId": 9,
 			"Name": "Sofa",
 			"Preis": 1299.00,
 		 	"Kategorie": "Möbel",
@@ -92,9 +92,9 @@
 			"PLZ": "T3M 7Z6",
 			"Stadt": "Tramatza",
 			"Land": "USA",
-			"Mobil": "(+49) (0)177 86728651",
-			"Telefon": "(+49) (0)158 16572881",
-			"Mail": "convallis.nike.com"
+			"Mobil": "(+1) (0)177 86728651",
+			"Telefon": "(+1) 2603 12600278",
+			"Mail": "orders@nike.com"
 		},
 		{
 			"l_id": 3,
@@ -109,14 +109,14 @@
 		},
 		{
 			"l_id": 4,
-			"Firma": "Elmo",
+			"Firma": "Eramsus",
 			"Strasse":"P.O. Box 924, 6757 Vehicula. St.",
 			"PLZ": "8854",
 			"Stadt": "Barrow-in-Furness",
 			"Land": "Deutschland",
 			"Mobil": "(+49) (0)173 18522253",
 			"Telefon": "(+49) (0)396 32917935",
-			"Mail": "nec.urna@elmo.com"
+			"Mail": "orders@erasmus.com"
 		},
 		{
 			"l_id": 5,
