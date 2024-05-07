@@ -1,187 +1,172 @@
 {
-  "Produkte" : [
+  "customers": [
 		{
-			"ProduktId": 1,
-			"Name": "Fußball",
-			"Preis": 24.99,
-		 	"Kategorie": "Sport",
-			"Lieferanten": [1, 2, 3],
-			"ArtikelImLager": 10
-		},
-		{
-			"ProduktId": 2,
-			"Name": "Matratze",
-			"Preis": 129.99,
-		 	"Kategorie": "Möbel",
-			"Lieferanten": [8,9],
-			"ArtikelImLager": 3
-		},
-		{
-			"ProduktId": 3,
-			"Name": "Schraube M5",
-			"Preis": 9.99,
-		 	"Kategorie": "Werkzeug",
-			"Lieferanten": [10],
-			"ArtikelImLager": 3000
-		},
-		{
-			"ProduktId": 4,
-			"Name": "Schraubenschlüssel",
-			"Preis": 7.00,
-		 	"Kategorie": "Werkzeug",
-			"Lieferanten": [4, 10],
-			"ArtikelImLager": 0
-		},
-		{
-			"ProduktId": 5,
-			"Name": "Hammer",
-			"Preis": 5.00,
-		 	"Kategorie": "Werkzeug",
-			"Lieferanten": [4],
-			"ArtikelImLager": 0
-		},
-		{
-			"ProduktId": 6,
-			"Name": "Taucherbrille",
-			"Preis": 19.99,
-		 	"Kategorie": "Sport",
-			"Lieferanten": [1, 2],
-			"ArtikelImLager": 0
-		},
-		{
-			"ProduktId": 7,
-			"Name": "Matratze",
-			"Preis": 99.99,
-		 	"Kategorie": "Möbel",
-			"Lieferanten": [9],
-			"ArtikelImLager": 0
-		},
-		{
-			"ProduktId": 8,
-			"Name": "Regal",
-			"Preis": 49.00,
-		 	"Kategorie": "Möbel",
-			"Lieferanten": [],
-			"ArtikelImLager": 2
-		},
-		{
-			"ProduktId": 9,
-			"Name": "Sofa",
-			"Preis": 1299.00,
-		 	"Kategorie": "Möbel",
-			"Lieferanten": [5,6],
-			"ArtikelImLager": 34
+		"id": 1,
+		"prename": "Noel",
+		"surname": "Reyes",
+		"dateOfBirth": "1988-09-07",
+		"birthPlace": "Bad Ems",
+		"gender": "M",
+		"phone": "(+49) (0)915 65144212",
+		"email": "n.reyes@mail.de",
+		"creditLimit": 2500.00,
+		"monthlyNetIncome": 8800.00,
+		"loyalityScore": 95,
+		"schufaScore": 7522,
+		"address": {
+			"id": 1,
+			"country": "Germany",
+			"city": "Bad Ems",
+			"postalCode": "56130",
+			"street": "Weißenburgstr. 116"
 		}
-	],
-	"lieferanten": [
-		{
-			"l_id": 1,
-			"Firma": "Adidas",
-			"Strasse": "3240 Augue Avenue",
-			"PLZ": "21370",
-			"Stadt": "New Westminster",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)170 54018517",
-			"Telefon": "(+49) (0)905 05173143",
-			"Mail": "luctus@adidas.com"
-		},
-		{
-			"l_id": 2,
-			"Firma": "Nike",
-			"Strasse":"7440 Nunc Road",
-			"PLZ": "T3M 7Z6",
-			"Stadt": "Tramatza",
-			"Land": "USA",
-			"Mobil": "(+1) (0)177 86728651",
-			"Telefon": "(+1) 2603 12600278",
-			"Mail": "orders@nike.com"
-		},
-		{
-			"l_id": 3,
-			"Firma": "Under Armor",
-			"Strasse":"Am Nordbahnhof 2",
-			"PLZ": "10115",
-			"Stadt": "Berlin",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)178 60431032",
-			"Telefon": "(+49) (0)602 64200095",
-			"Mail": "orci.luctus@ua.de"
-		},
-		{
-			"l_id": 4,
-			"Firma": "Eramsus",
-			"Strasse":"P.O. Box 924, 6757 Vehicula. St.",
-			"PLZ": "8854",
-			"Stadt": "Barrow-in-Furness",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)173 18522253",
-			"Telefon": "(+49) (0)396 32917935",
-			"Mail": "orders@erasmus.com"
-		},
-		{
-			"l_id": 5,
-			"Firma": "Sofa Perfekt",
-			"Strasse": "493-5873 Eu Road",
-			"PLZ": "904902",
-			"Stadt": "Mandurah",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)176 26706143",
-			"Telefon": "(+49) (0)074 48981087",
-			"Mail": "blandit.mattis.Cras@sperfekt.de"
-		},
-		{
-			"l_id": 6,
-			"Firma": "Sofa und mehr",
-			"Strasse": "P.O. Box 973, 477 Ipsum Ave",
-			"PLZ": "1179 MU",
-			"Stadt": "Dörtyol",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)174 38685157",
-			"Telefon": "(+49) (0)915 65144212",
-			"Mail": "sofa.und.mehr@mail.de"
-		},
-		{
-			"l_id": 7,
-			"Strasse": "P.O. Box 901, 1666 Mattis Street",
-			"PLZ": "3839AP",
-			"Stadt": "Peabody",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)172 30757781",
-			"Telefon": "(+49) (0)004 98572281",
-			"Mail": "info@stihl.de"
-		},
-		{
-			"l_id": 8,
-			"Firma": "Matratzen Maier",
-			"Strasse": "962-3398 Aliquam St.",
-			"PLZ": "18194",
-			"Stadt": "Trochu",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)176 66456231",
-			"Telefon": "(+49) (0)089 19876490",
-			"Mail": "magna.et@maier.com"
-		},
-		{
-			"l_id": 9,
-			"Firma": "Matratzen Prod",
-			"Strasse": "2812 Lectus. Avenue",
-			"PLZ": "4846",
-			"Stadt": "Bojano",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)179 37596702",
-			"Telefon": "(+49) (0)161 53545197",
-			"Mail": "info@mp.de"
-		},
-		{
-			"l_id": 10,
-			"Firma": "Alles aus Metall",
-			"Strasse": "Ap #572-9718 Leo. Road",
-			"PLZ": "86685",
-			"Stadt": "Barranca",
-			"Land": "Deutschland",
-			"Mobil": "(+49) (0)179 63056383",
-			"Telefon": "(+49) (0)544 47631978",
-			"Mail": "augue@aam.de"
+	},
+	{
+		"id": 2,
+		"prename": "Claus",
+		"surname": "Engler",
+		"dateOfBirth": "1992-03-12",
+		"birthPlace": "Hollister",
+		"gender": "M",
+		"phone": "(+49) 2603 12600278",
+		"email": "c.engler@gmx.de",
+		"creditLimit": 10000.00,
+		"monthlyNetIncome": 5600.00,
+		"loyalityScore": 78,
+		"schufaScore": 8444,
+		"address": {
+			"id": 2,
+			"country": "Samoa",
+			"city": "Hollister",
+			"postalCode": "9921RA",
+			"street": "995-1909 Metus. Rd."
 		}
-	]
+	},
+	{
+		"id": 3,
+		"prename": "Bernhard",
+		"surname": "Moos",
+		"dateOfBirth": "1999-01-12",
+		"birthPlace": "Canton",
+		"gender": "M",
+		"phone": "(+49) 3622 85820-588",
+		"email": "bernhard.moss@yahoo.com",
+		"creditLimit": 5000.00,
+		"monthlyNetIncome": 4900.00,
+		"loyalityScore": 38,
+		"schufaScore": 5444,
+		"address": {
+			"id": 3,
+			"country": "Madagascar",
+			"city": "Canton",
+			"postalCode": "2801IL",
+			"street": "Ap #890-6962 Dictum. St."
+		}
+	},
+	{
+		"id": 4,
+		"prename": "Timo",
+		"surname": "Breit",
+		"dateOfBirth": "1982-02-22",
+		"birthPlace": "Salem",
+		"gender": "M",
+		"phone": "(+49) 2371 32608889",
+		"email": "t.breit@web.de",
+		"creditLimit": 7300.00,
+		"monthlyNetIncome": 3600.00,
+		"loyalityScore": 18,
+		"schufaScore": 3474,
+		"address": {
+			"id": 4,
+			"country": "Iceland",
+			"city": "Salem",
+			"postalCode": "7699SO",
+			"street": "982-913 At, Road"
+		}
+	},
+	{
+		"id": 5,
+		"prename": "Callie",
+		"surname": "Oliver",
+		"dateOfBirth": "1962-07-24",
+		"birthPlace": "New Madrid",
+		"gender": "M",
+		"phone": "1 78 385 9208-2906",
+		"email": "fermentum@Mauris.edu",
+		"creditLimit": 12000.00,
+		"monthlyNetIncome": 5600.00,
+		"loyalityScore": 98,
+		"schufaScore": 8474,
+		"address": {
+			"id": 5,
+			"country": "Portugal",
+			"city": "New Madrid",
+			"postalCode": "7246QV",
+			"street": "652-3717 Leo Rd."
+		}
+	},
+	{
+		"id": 6,
+		"prename": "Erasmus",
+		"surname": "Houston",
+		"dateOfBirth": "1985-03-09",
+		"birthPlace": "Clarksburg",
+		"gender": "M",
+		"phone": "1 85 622 9152-2291",
+		"email": "pede.Cras@felispurus.edu",
+		"creditLimit": 11000.00,
+		"monthlyNetIncome": 6700.00,
+		"loyalityScore": 72,
+		"schufaScore": 6527,
+		"address": {
+			"id": 6,
+			"country": "Aruba",
+			"city": "Clarksburg",
+			"postalCode": "4155RZ",
+			"street": "P.O. Box 809, 2836 Eu, Av."
+		}
+	},
+	{
+		"id": 7,
+		"prename": "Merrill",
+		"surname": "Gilmore",
+		"dateOfBirth": "1972-07-12",
+		"birthPlace": "Kalispell",
+		"gender": "F",
+		"phone": "1 35 496 1071-3298",
+		"email": "vulputate.eu.odio@dolor.com",
+		"creditLimit": 6000.00,
+		"monthlyNetIncome": 4700.00,
+		"loyalityScore": 59,
+		"schufaScore": 3893,
+		"address": {
+			"id": 7,
+			"country": "Botswana",
+			"city": "Kalispell",
+			"postalCode": "1076VV",
+			"street": "Ap #142-6669 Pede Av."
+		}
+	},
+	{
+		"id": 8,
+		"prename": "Nash",
+		"surname": "Ball",
+		"dateOfBirth": "1997-04-03",
+		"birthPlace": "Rotenburg",
+		"gender": "M",
+		"phone": "1 69 965 8308-9325",
+		"email": "enim.Mauris.quis@augue.edu",
+		"creditLimit": 3000.00,
+		"monthlyNetIncome": 3200.00,
+		"loyalityScore": 62,
+		"schufaScore": 2893,
+		"address": {
+			"id": 8,
+			"country": "Germany",
+			"city": "Rotenburg",
+			"postalCode": "27356",
+			"street": "Mindener Str. 24"
+		}
+	}
+]
 }
