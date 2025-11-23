@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulation: Maßnahmen-Erfassung im Legacy-System</title>
+  <style>
+    /* Old-school "legacy" look with modern usability */
+    :root{--bg:#f3f3f1;--panel:#fff;--accent:#0b5;--muted:#666}
+    body{font-family:Segoe UI, Roboto, Arial, sans-serif;background:linear-gradient(180deg,#e9ecef, var(--bg));margin:0;padding:20px;color:#222}
+    .container{max-width:960px;margin:0 auto}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:56px;height:56px;background:#0b5;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    h1{font-size:1.25rem;margin:0}
+    .panel{background:var(--panel);border:1px solid #d8d8d6;border-radius:6px;padding:14px;box-shadow:0 1px 0 rgba(0,0,0,0.03)}
+    form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    label{display:block;font-size:0.85rem;margin-bottom:6px;color:var(--muted)}
+    input[type=text],select,textarea,input[type=date],input[type=number]{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;font-size:0.95rem}
+    textarea{min-height:80px}
+    .full{grid-column:1/-1}
+    .actions{display:flex;gap:10px;align-items:center}
+    button{padding:8px 12px;border-radius:6px;border:0;background:#0b5;color:#042;font-weight:600;cursor:pointer}
+    button.secondary{background:#f0f0f0;color:#333}
+    .list{margin-top:16px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;border-bottom:1px solid #eee;text-align:left;font-size:0.9rem}
+    th{background:#fafafa}
+    .small{font-size:0.8rem;color:var(--muted)}
+    .status{display:inline-block;padding:4px 8px;border-radius:999px;font-weight:700}
+    .status.low{background:#e6ffef;color:#057}
+    .status.medium{background:#fff7e6;color:#a65a00}
+    .status.high{background:#ffecec;color:#8b0000}
+    .toast{position:fixed;right:20px;bottom:20px;background:#052;padding:10px 14px;color:#fff;border-radius:6px;display:none}
+    .legacy-frame{font-family:monospace;background:#111;color:#0f0;padding:10px;border-radius:4px;margin-top:12px}
+    .muted-line{color:#444;font-size:0.85rem;margin-top:8px}
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn-danger{background:#ff6b6b;color:#fff}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">LS</div>
+      <div>
+        <h1>Simulation: Maßnahmen-Erfassung im Legacy-System</h1>
+        <div class="small">Demo-Webseite</div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2 style="margin-top:0">Neue Maßnahme erfassen</h2>
+      <form id="measureForm">
+        <div>
+          <label for="segment">Netzsegment</label>
+          <select id="segment" required>
+            <option value="A">Segment A – Wohngebiet</option>
+            <option value="B">Segment B – Gewerbegebiet</option>
+            <option value="C">Segment C – Landwirtschaft</option>
+            <option value="D">Segment D – Kleines Industriegebiet</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="priority">Priorität</label>
+          <select id="priority">
+            <option value="niedrig">Niedrig</option>
+            <option value="mittel">Mittel</option>
+            <option value="hoch">Hoch</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="risk">Risiko (0-100)</label>
+          <input id="risk" type="number" min="0" max="100" value="10" />
+        </div>
+
+        <div>
+          <label for="due">Geplanter Termin</label>
+          <input id="due" type="date" />
+        </div>
+
+        <div class="full">
+          <label for="desc">Kurzbeschreibung</label>
+          <textarea id="desc" placeholder="Kurz beschreiben, was zu tun ist..."></textarea>
+        </div>
+
+        <div class="full actions">
+          <button type="submit">Maßnahme anlegen </button>
+          <button type="button" class="secondary" id="resetBtn">Form leeren</button>
+          <div style="margin-left:auto" class="small">Eintrag wird lokal gespeichert (localStorage)</div>
+        </div>
+      </form>
+
+      <div class="muted-line">Hinweis: Diese Seite simuliert ein Legacy-System. Der "Maßnahme anlegen"-Button zeigt eine kleine Automatisierung, die den Datensatz in die "Legacy-Oberfläche" schreibt.</div>
+
+      <div class="list">
+        <h3>Vorhandene Maßnahmen</h3>
+        <table id="measuresTable">
+          <thead><tr><th>#</th><th>Segment</th><th>Beschreibung</th><th>Risiko</th><th>Priorität</th><th>Termin</th><th>Aktion</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <button id="exportCsv" class="secondary">Export CSV</button>
+        <button id="clearAll" class="secondary btn-danger">Alle Einträge löschen</button>
+      </div>
+
+    </section>
+
+    <section class="panel" style="margin-top:14px">
+      <h3 style="margin-top:0">"Legacy" Oberfläche (Simulation)</h3>
+      <div class="legacy-frame" id="legacyFrame">> Legacy System: keine Aktivität</div>
+    </section>
+
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // einfache clientseitige Simulation mit localStorage
+    const form = document.getElementById('measureForm');
+    const tableBody = document.querySelector('#measuresTable tbody');
+    const legacy = document.getElementById('legacyFrame');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg, time=2200){
+      toast.textContent = msg; toast.style.display='block';
+      setTimeout(()=> toast.style.display='none', time);
+    }
+
+    function loadMeasures(){
+      const raw = localStorage.getItem('legacy_measures');
+      return raw ? JSON.parse(raw) : [];
+    }
+    function saveMeasures(list){ localStorage.setItem('legacy_measures', JSON.stringify(list)); }
+
+    function render(){
+      const list = loadMeasures();
+      tableBody.innerHTML='';
+      list.forEach((m,i)=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${i+1}</td>
+                        <td>${m.segment}</td>
+                        <td>${escapeHtml(m.desc)}</td>
+                        <td>${m.risk}%</td>
+                        <td>${m.priority}</td>
+                        <td>${m.due||'-'}</td>
+                        <td><button data-idx="${i}" class="deleteBtn secondary">Löschen</button></td>`;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function escapeHtml(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      // read values
+      const data = {
+        segment: document.getElementById('segment').value,
+        priority: document.getElementById('priority').value,
+        risk: Number(document.getElementById('risk').value||0),
+        due: document.getElementById('due').value,
+        desc: document.getElementById('desc').value.trim(),
+        created: new Date().toISOString()
+      };
+
+      // simulate: animate into legacy frame
+      legacy.textContent = '> Verbinde mit Legacy-System...';
+      showToast('Übertrage Daten ins Legacy-System...');
+      // fake typing animation
+      setTimeout(()=>{
+        legacy.textContent = `> Legacy: Neuer Auftrag für Segment ${data.segment}` + '\n';
+        legacy.textContent += `  Priorität: ${data.priority}  Risiko: ${data.risk}%` + '\n';
+        legacy.textContent += `  Termin: ${data.due || '-'}\n`;
+        legacy.textContent += `  Beschreibung: ${data.desc}\n`;
+        legacy.textContent += `> Legacy: Eintrag gespeichert (ID: ${Math.floor(Math.random()*90000)+10000})`;
+
+        const list = loadMeasures();
+        list.push(data);
+        saveMeasures(list);
+        render();
+        showToast('Eintrag erfolgreich erstellt');
+      }, 900 + Math.random()*800);
+    });
+
+    document.getElementById('resetBtn').addEventListener('click', ()=>{ form.reset(); showToast('Formular geleert'); });
+
+    tableBody.addEventListener('click', e=>{
+      if(e.target.matches('.deleteBtn')){
+        const idx = Number(e.target.dataset.idx);
+        // simulate delete
+        const list = loadMeasures();
+        const item = list[idx];
+        if(!item) return;
+        legacy.textContent = `> Lösche Eintrag für Segment ${item.segment} ...`;
+        showToast('Entferne Datensatz...');
+        setTimeout(()=>{
+          list.splice(idx,1);
+          saveMeasures(list);
+          render();
+          legacy.textContent = `> Legacy: Auftrag für Segment ${item.segment} gelöscht.`;
+          showToast('Eintrag gelöscht (Rollback simuliert)');
+        }, 700 + Math.random()*600);
+      }
+    });
+
+    document.getElementById('exportCsv').addEventListener('click', ()=>{
+      const list = loadMeasures();
+      if(list.length===0){ showToast('Keine Einträge zum Export'); return; }
+      const header = ['segment,priority,risk,due,desc,created'];
+      const rows = list.map(r=>`${r.segment},${r.priority},${r.risk},${r.due||''},"${(r.desc||'').replace(/"/g,'""')}",${r.created}`);
+      const csv = header.concat(rows).join('\n');
+      const blob = new Blob([csv],{type:'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download='measures_export.csv'; a.click(); URL.revokeObjectURL(url);
+      showToast('CSV exportiert');
+    });
+
+    document.getElementById('clearAll').addEventListener('click', ()=>{
+      if(!confirm('Alle Einträge löschen?')) return;
+      localStorage.removeItem('legacy_measures');
+      render();
+      legacy.textContent='> Legacy System: keine Aktivität';
+      showToast('Alle Einträge gelöscht');
+    });
+
+    // initial render
+    render();
+
+  </script>
+</body>
+</html>
